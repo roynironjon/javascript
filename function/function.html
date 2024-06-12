@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>function</title>
+    <style>
+        body{
+            height: 100vh;
+            background: #dde1e7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .main{
+            width: 400px;
+            background: #dde1e7;
+            margin: 20px;
+            text-align: center;
+        }
+        input, button{
+            padding: 10px 20px;
+            outline: none;
+            border: none;
+            border: 2px solid #dcdcdc;
+            border-radius: 6px;
+            font-size: 16px;
+            color: #333;
+            text-transform: capitalize;
+        }
+        button{
+            cursor: pointer;
+        }
+        .submit{
+            margin-bottom: 40px;
+        }
+        h2{
+            text-transform: capitalize;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="submit">
+            <input type="text" name="name" id="name" placeholder="show text">
+            <button onclick="great()">click</button>
+        </div>
+        <div class="outputshow">
+            <h2 class="output"></h2>
+        </div>
+    </div>
+
+    <script>
+        function great(){
+            let name = document.getElementById("name").value;
+            let string = name;
+            document.getElementsByClassName('output')[0].innerHTML = string;
+        }
+    </script>
+</body>
+</html>

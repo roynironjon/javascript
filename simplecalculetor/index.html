@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <style>
+        body {
+            height: 100vh;
+            background: #dde1e7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .main_section {
+            width: 250px;
+            padding: 10px;
+            background: #dde1e7;
+            margin: 20px;
+            text-align: center;
+            border: 2px solid #fff;
+            border-radius: 10px;
+            box-shadow: inset -5px -5px 9px rgba(255, 255, 255, 0.45), inset 5px 5px 9px rgba(94, 104, 121, 0.3);
+        }
+        .main_section .main_column .fild {
+            margin-bottom: 20px;
+        }
+        .main_section .main_column .fild input, select {
+            width: 20%;
+            padding: 6px;
+            outline: none;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        .main_section .main_column .rejult input, button {
+            padding: 5px;
+            outline: none;
+            border: 1px solid #333;
+            border-radius: 5px;
+        }
+        .main_section .main_column .rejult button {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <section class="main_section">
+        <div class="main_column">
+            <div class="fild">
+                <input type="number" name="first" id="first" step="any">
+                <select name="select" id="operator">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="*">x</option>
+                    <option value="/">/</option>
+                </select>
+                <input type="number" name="second" id="second" step="any">
+            </div>
+            <div class="rejult">
+                <button onclick="cal()">click</button>
+                <input type="text" name="" id="res" readonly>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function cal() {
+            let opr1 = parseFloat(document.getElementById('first').value);
+            let opr2 = parseFloat(document.getElementById('second').value);
+            let opa = document.getElementById('operator').value;
+            let resl;
+            if (opa == "+") {
+                resl = opr1 + opr2;
+            }else if (opa == "-") {
+                resl = opr1 - opr2;
+            }else if (opa == "*") {
+                resl = opr1 * opr2;
+            }else if (opa == "/") {
+                if (opr2 != 0) {
+                    resl = opr1 / opr2;
+                } else {
+                    resl = "Infinity";
+                }
+            }
+            document.getElementById("res").value = resl;
+        }
+    </script>
+</body>
+</html>
